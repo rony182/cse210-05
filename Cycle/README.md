@@ -10,7 +10,7 @@ python3 -m pip install raylib
 ```
 After you've installed the required libraries, open a terminal and browse to the project's root folder. Start the program by running the following command.```
 
-python3 snake 
+python3 cycle
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the 
 project folder. Select the main module inside the hunter folder and click the "run" icon.
@@ -51,6 +51,9 @@ root                    (project root folder)
 * Python 3.8.0
 * Raylib Python CFFI 3.7
 
-## Authors
----
-* TODO: Add your name and email here
+## Authors (CSE210 winter 2022: Team 08)
+* Kwazeme Ogubie (ogu21006@byui.edu)
+* A. Belén Chaparro (cha21065@byui.edu)
+* Fabrizio Carlassara (car21101@byui.edu)
+* Rony Nickson Calderon Sara (cal21043@byui.edu)
+* 
