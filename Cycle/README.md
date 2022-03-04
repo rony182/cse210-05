@@ -23,7 +23,7 @@ root                    (project root folder)
 +-- Cicle               (source code for game)
   +-- game              (specific game classes)
         +-- casting
-            +-- actor (#)
+            +-- actor
             +-- cast
             +-- score
             +-- snake
