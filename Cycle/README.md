@@ -23,26 +23,26 @@ root                    (project root folder)
 +-- Cicle               (source code for game)
   +-- game              (specific game classes)
         +-- casting
-            +-- actor
-            +-- cast
-            +-- score
-            +-- snake
+            +-- actor.py
+            +-- cast.py
+            +-- score.py
+            +-- snake.py
         +-- directing   
-            +-- director
+            +-- director.py
         +-- scripting
-            +-- action
-            +-- control_actors_action
-            +-- draw_actors_action
-            +-- move_actors_action
-            +-- script
+            +-- action.py
+            +-- control_actors_action.py
+            +-- draw_actors_action.py
+            +-- move_actors_action.py
+            +-- script.py
         +-- services
-            +-- keyboard_service
-            +-- video_service
+            +-- keyboard_service.py
+            +-- video_service.py
         +-- shared   
-            +-- color
-            +-- point 
+            +-- color.py
+            +-- point.py
   +-- __main__.py       (entry point for program)
-  +-- constants
+  +-- constants.py
 +-- README.md           (general info)
 ```
 
