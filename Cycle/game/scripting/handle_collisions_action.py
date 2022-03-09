@@ -1,6 +1,6 @@
 import constants
 # from cycle.casting.actor import Actor
-from cycle.scripting.action import Action
+from game.scripting.action import Action
 # from cycle.shared.point import Point
 
 class HandleCollisionsAction(Action):
