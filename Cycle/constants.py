@@ -1,4 +1,4 @@
-from cycle.shared.color import Color
+from game.shared.color import Color
 
 
 COLUMNS = 40
