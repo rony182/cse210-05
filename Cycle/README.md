@@ -32,6 +32,7 @@ root                    (project root folder)
         +-- scripting
             +-- action.py
             +-- control_actors_action.py
+            +-- handle_collisions_action.py
             +-- draw_actors_action.py
             +-- move_actors_action.py
             +-- script.py
