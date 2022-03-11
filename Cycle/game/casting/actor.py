@@ -23,6 +23,7 @@ class Actor:
         self._font_size = 15
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
+        self._position2 = Point(700, 0)
         self._velocity = Point(0, 0)
 
     def get_color(self):
@@ -48,6 +49,14 @@ class Actor:
             Point: The actor's position in 2d space.
         """
         return self._position
+
+    def get_position2(self):
+        """Gets the actor's position in 2nd space.
+
+        Returns:
+            Point: The actor's position in 2d space.
+        """
+        return self._position2
     
     def get_text(self):
         """Gets the actor's textual representation.
@@ -92,6 +101,14 @@ class Actor:
             position (Point): The given position.
         """
         self._position = position
+    
+    def set_position2(self, position2):
+        """Updates the position to the given one.
+
+        Args:
+            position (Point): The given position.
+        """
+        self._position2 = position2
     
     def set_font_size(self, font_size):
         """Updates the font size to the given one.
