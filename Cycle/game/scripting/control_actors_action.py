@@ -57,8 +57,8 @@ class ControlActorsAction2(ControlActorsAction):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         super().__init__(keyboard_service)
-        self._keyboard_service = keyboard_service
-        self._direction = Point(constants.CELL_SIZE, 0)
+        # self._keyboard_service = keyboard_service
+        # self._direction = Point(constants.CELL_SIZE, 0)
 
     def execute(self, cast, script):
         """Executes the control actors action.
