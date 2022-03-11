@@ -26,7 +26,7 @@ class Director:
         while self._video_service.is_window_open():
             for group in ["input", "update", "output"]:
                 self._execute_actions(group, cast, script)
-            self._video_service.close_window()
+            # self._video_service.close_window()
 
     def _execute_actions(self, group, cast, script):
         """Calls execute for each action in the given group.
