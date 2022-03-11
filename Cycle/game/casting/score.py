@@ -27,7 +27,7 @@ class Score(Actor):
         self.set_text(f"Player One: {self._points}")
 
 # Add score for Player Two
-class Score2(Actor):
+class Score2(Score):
     """
     A record of points made or lost. 
 
