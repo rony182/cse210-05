@@ -47,8 +47,8 @@ class ControlActorsAction(Action):
             if self._keyboard_service.is_key_down('s'):
                 self._direction = Point(0, constants.CELL_SIZE)
             
-            snake = cast.get_first_actor("snakes")
-            snake.turn_head(self._direction)
+            cycle = cast.get_first_actor("cycles")
+            cycle.turn_head(self._direction)
             
         if self._player=='player2':
             if self._keyboard_service.is_key_down('j'):
@@ -66,7 +66,7 @@ class ControlActorsAction(Action):
             if self._keyboard_service.is_key_down('k'):
                 self._direction = Point(0, constants.CELL_SIZE)
 
-            snake2 = cast.get_second_actor("snakes")
-            snake2.turn_head(self._direction)
+            cycle2 = cast.get_second_actor("cycles")
+            cycle2.turn_head(self._direction)
             
     
