@@ -1,8 +1,6 @@
 import constants
 
 from game.casting.cast import Cast
-from game.casting.score import Score
-from game.casting.score import Score2
 from game.casting.cycle import Cycle
 
 from game.scripting.script import Script
@@ -16,22 +14,23 @@ from game.directing.director import Director
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 
+from game.shared.point import Point
+
 def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("cycles", Cycle(constants.BLUE))
-    cast.add_actor("cycles", Cycle(constants.RED))
-    cast.add_actor("scores", Score())    
-    cast.add_actor("scores", Score2())
+    cast.add_actor("cycles", Cycle(constants.BLUE, Point(300, 300), { "up" : "w", "down" : "s", "left" : "a", "right" : "d" }))
+    cast.add_actor("cycles", Cycle(constants.RED, Point(600, 300), { "up" : "i", "down" : "k", "left" : "j", "right" : "l" }))
    
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
 
     script = Script()
-    script.add_action("input", ControlActorsAction(keyboard_service, 'player1'))
-    script.add_action("input", ControlActorsAction(keyboard_service, 'player2'))
+    for cycle in cast.get_actors("cycles"):
+        script.add_action("input", ControlActorsAction(keyboard_service, cycle))
+
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
