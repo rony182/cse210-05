@@ -25,21 +25,12 @@ class DrawActorsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        score = cast.get_first_actor("scores")
-        score2 = cast.get_second_actor("scores")
-        cycle = cast.get_first_actor("cycles")
-        segments = cycle.get_segments()
-        cycle2 = cast.get_second_actor("cycles")
-        segments2 = cycle2.get_segments()
-        messages = cast.get_actors("messages")
-        messages2 = cast.get_actors("messages2")
+        cycles = cast.get_actors("cycles")
         self._video_service.clear_buffer()
-        # draw actors
-        self._video_service.clear_buffer()
-        self._video_service.draw_actors(segments)
-        self._video_service.draw_actors(segments2)
-        self._video_service.draw_actor(score)
-        self._video_service.draw_actor(score2)
-        self._video_service.draw_actors(messages, True)
-        self._video_service.draw_actors(messages2, True)
+        for cycle in cycles:
+            segments = cycle.get_segments()
+            self._video_service.draw_actors(segments)
+        
+        message = cast.get_actors("messages")
+        self._video_service.draw_actors(message, True)
         self._video_service.flush_buffer()
