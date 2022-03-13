@@ -12,13 +12,13 @@ class Cycle(Actor):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self, player_color):
+    def __init__(self, player_color, position, keys):
         super().__init__()
+        self._position = position
         self._segments = []
-        self._prepare_body()
-        self._player_color=player_color
-        
-        
+        self._player_color = player_color
+        self._prepare_body()        
+        self.keys = keys
 
     def get_segments(self):
         return self._segments
@@ -37,7 +37,7 @@ class Cycle(Actor):
     def get_head(self):
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments):
+    def grow_trail(self, number_of_segments):
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
@@ -55,18 +55,17 @@ class Cycle(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 2)
-        y = int(constants.MAX_Y / 2)
+        x = self._position.get_x()
+        y = self._position.get_y()
 
         for i in range(constants.CYCLE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
+            position = Point(x, y - i * constants.CELL_SIZE)
+            velocity = Point(0, 1 * constants.CELL_SIZE)
             text = "5" if i == 0 else "#"
-            color = constants.YELLOW if i == 0 else constants.GREEN
-            
+
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text(text)
-            segment.set_color(color)
+            segment.set_color(self._player_color)
             self._segments.append(segment)
