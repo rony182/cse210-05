@@ -1,9 +1,9 @@
 from game.scripting.action import Action
 
 class MoveActorsAction(Action):
-    """An update action that moves all the actors.
+    """An update action that moves all the cycles.
     
-        The responsibility of MoveActorsAction is to move all the actors 
+        The responsibility of MoveActorsAction is to move all the cycles 
         that have a velocity greater than zero.
     """
 
@@ -14,7 +14,10 @@ class MoveActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        all_actors = cast.get_all_actors()
+        cycles = cast.get_actors("cycles")
 
-        for actor in all_actors:
-            actor.move_next()
+        for cycle in cycles:
+            cycle.move_next()
+            # This is making the cycles grow ridiculously
+            # n_of_segments = len(cycle.get_segments())
+            # cycle.grow_trail(n_of_segments)
