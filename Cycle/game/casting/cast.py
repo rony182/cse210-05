@@ -50,7 +50,7 @@ class Cast:
             results.extend(self._actors[group])
         return results
 
-    def get_first_actor(self, group):
+    def get_actor(self, group, index):
         """Gets the first actor in the given group.
         
         Args:
@@ -62,7 +62,7 @@ class Cast:
         """
         result = None
         if group in self._actors.keys():
-            result = self._actors[group][0]
+            result = self._actors[group][index]
         return result
 
     def remove_actor(self, group, actor):
