@@ -31,29 +31,31 @@ class HandleCollisionsAction(Action):
             
     
     def _handle_segment_collision(self, cast):
-        """Sets the game over flag if the cycle collides with one of its segments.
+        """Sets the game over flag if the cycle collides with one of its segments or with the 
+        other cycle's.
         
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        cycle = cast.get_first_actor("cycles")
-        head = cycle.get_segments()[0]
-        segments = cycle.get_segments()[1:]
-        # get second cycle segments
-        cycle2 = cast.get_second_actor("cycles")
-        head2 = cycle2.get_segments()[0]
-        segments2 = cycle2.get_segments()[1:]
-        # check segment collision and set is_game_over = True
-        for segment in segments:
-            for segment2 in segments2:
-                if head2.get_position().equals(segment2.get_position()):
-                    self._is_game_over = True
-                elif head.get_position().equals(segment.get_position()):
-                    self._is_game_over = True
-                elif head2.get_position().equals(segment.get_position()):
-                    self._is_game_over = True
-                elif head.get_position().equals(segment2.get_position()):
-                    self._is_game_over = True
+        cycles = []
+        for i in range(2):
+            cycles.append(cast.get_actor("cycles", i))
+
+        heads = []
+        segments = []
+        for i, cycle in enumerate(cycles):
+            heads.append(cycle.get_segments()[0])
+            segments.append(cycle.get_segments()[1:])
+            
+        
+        for head in heads:
+            # Iterate through both Cycle bodies
+            for segment in segments:
+                # Iterate through whole Cycle body
+                for seg in segment:
+                    # Check if head and body collide
+                    if head.get_position().equals(seg.get_position()):
+                        self._is_game_over = True
  
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the cycles white if the game is over.
@@ -62,11 +64,12 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            cycle = cast.get_first_actor("cycles")
-            segments = cycle.get_segments()
-            cycle2 = cast.get_second_actor("cycles")
-            segments2 = cycle2.get_segments()
-
+            cycles = cast.get_actors("cycles")
+            for cycle in cycles:
+                segments = cycle.get_segments()
+                for segment in segments:
+                    segment.set_color(constants.WHITE)
+    
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
@@ -75,8 +78,3 @@ class HandleCollisionsAction(Action):
             message.set_text("Game Over!")
             message.set_position(position)
             cast.add_actor("messages", message)
-
-            for segment in segments:
-                segment.set_color(constants.WHITE)
-            for segment2 in segments2:
-                segment2.set_color(constants.WHITE)   
