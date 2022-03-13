@@ -30,7 +30,7 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-            # left
+        # left
         if self._keyboard_service.is_key_down(self._player.keys["left"]):
             self._direction = Point(-constants.CELL_SIZE, 0)
         
