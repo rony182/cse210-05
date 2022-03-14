@@ -25,7 +25,6 @@ root                    (project root folder)
         +-- casting
             +-- actor.py
             +-- cast.py
-            +-- score.py
             +-- cycle.py
         +-- directing   
             +-- director.py
