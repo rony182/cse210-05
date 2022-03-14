@@ -64,13 +64,3 @@ class Cast:
         if group in self._actors.keys():
             result = self._actors[group][index]
         return result
-
-    def remove_actor(self, group, actor):
-        """Removes an actor from the given group.
-        
-        Args:
-            group (string): The name of the group.
-            actor (Actor): The actor to remove.
-        """
-        if group in self._actors:
-            self._actors[group].remove(actor)
