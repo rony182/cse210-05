@@ -15,10 +15,6 @@ class VideoService:
         """
         self._debug = debug
 
-    def close_window(self):
-        """Closes the window and releases all computing resources."""
-        pyray.close_window()
-
     def clear_buffer(self):
         """Clears the buffer in preparation for the next rendering. This method should be 
         called at the beginning of the game's output phase.
