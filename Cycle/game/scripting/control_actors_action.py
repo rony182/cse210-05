@@ -11,6 +11,8 @@ class ControlActorsAction(Action):
 
     Attributes:
         _keyboard_service (KeyboardService): An instance of KeyboardService.
+        _direction (Point): An instance of Point.
+        _player: An instance of Cycle.
     """
 
     def __init__(self, keyboard_service, player):
