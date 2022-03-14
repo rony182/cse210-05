@@ -13,7 +13,7 @@ class Cycle(Actor):
         super().__init__()
         self._position = position
         self._segments = []
-        self._player_color = player_color
+        self._color = player_color
         self._prepare_body()        
         self.keys = keys
 
@@ -45,7 +45,7 @@ class Cycle(Actor):
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")
-            segment.set_color(self._player_color)
+            segment.set_color(self._color)
             self._segments.append(segment)
 
     def turn_head(self, velocity):
@@ -64,5 +64,5 @@ class Cycle(Actor):
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text(text)
-            segment.set_color(self._player_color)
+            segment.set_color(self._color)
             self._segments.append(segment)
