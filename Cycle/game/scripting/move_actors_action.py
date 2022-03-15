@@ -18,6 +18,6 @@ class MoveActorsAction(Action):
 
         for cycle in cycles:
             cycle.move_next()
-            # This is making the cycles grow ridiculously
-            # n_of_segments = len(cycle.get_segments())
-            # cycle.grow_trail(n_of_segments)
+
+            # Trails' growth
+            cycle.grow_trail(1)
