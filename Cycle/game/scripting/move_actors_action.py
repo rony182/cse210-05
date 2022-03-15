@@ -1,4 +1,5 @@
 from game.scripting.action import Action
+from game.scripting.handle_collisions_action import HandleCollisionsAction
 
 class MoveActorsAction(Action):
     """An update action that moves all the cycles.
@@ -20,4 +21,6 @@ class MoveActorsAction(Action):
             cycle.move_next()
 
             # Trails' growth
+            # game_over = HandleCollisionsAction().get_is_game_over()
+            # if not game_over:
             cycle.grow_trail(1)
