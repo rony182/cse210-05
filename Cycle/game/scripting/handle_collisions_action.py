@@ -79,3 +79,6 @@ class HandleCollisionsAction(Action):
             message.set_text("Game Over!")
             message.set_position(position)
             cast.add_actor("messages", message)
+    
+    # def get_is_game_over(self):
+    #     return self._is_game_over
