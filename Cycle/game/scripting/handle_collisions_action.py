@@ -67,6 +67,7 @@ class HandleCollisionsAction(Action):
             cycles = cast.get_actors("cycles")
             for cycle in cycles:
                 segments = cycle.get_segments()
+                cycle.set_color(constants.WHITE)
                 for segment in segments:
                     segment.set_color(constants.WHITE)
     
