@@ -56,6 +56,7 @@ class HandleCollisionsAction(Action):
                     # Check if head and body collide
                     if head.get_position().equals(seg.get_position()):
                         self._is_game_over = True
+                        return
  
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the cycles white if the game is over.
@@ -80,5 +81,5 @@ class HandleCollisionsAction(Action):
             message.set_position(position)
             cast.add_actor("messages", message)
     
-    # def get_is_game_over(self):
-    #     return self._is_game_over
+    def get_is_game_over(self):
+        return self._is_game_over

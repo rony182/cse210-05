@@ -20,7 +20,7 @@ class MoveActorsAction(Action):
         for cycle in cycles:
             cycle.move_next()
 
-            # Trails' growth
-            # game_over = HandleCollisionsAction().get_is_game_over()
-            # if not game_over:
-            cycle.grow_trail(1)
+            handleCollisionsAction = script.get_actions("update")[1]
+            game_over = handleCollisionsAction.get_is_game_over()
+            if not game_over:
+                cycle.grow_trail(1)
