@@ -24,6 +24,7 @@ class DrawActorsAction(Action):
 
         Args:
             cast (Cast): The cast of Actors in the game.
+            script (Script): The script of Actions in the game.
         """
         cycles = cast.get_actors("cycles")
         self._video_service.clear_buffer()

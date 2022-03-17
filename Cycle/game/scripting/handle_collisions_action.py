@@ -11,7 +11,7 @@ class HandleCollisionsAction(Action):
     with the other cycle, or the cycle collides with its segments, or the game is over.
 
     Attributes:
-        _is_game_over (boolean): Whether or not the game is over.
+        _is_game_over (bool): Whether or not the game is over.
     """
 
     def __init__(self):
@@ -43,7 +43,7 @@ class HandleCollisionsAction(Action):
 
         heads = []
         segments = []
-        for i, cycle in enumerate(cycles):
+        for cycle in cycles:
             heads.append(cycle.get_segments()[0])
             segments.append(cycle.get_segments()[1:])
             
@@ -82,4 +82,9 @@ class HandleCollisionsAction(Action):
             cast.add_actor("messages", message)
     
     def get_is_game_over(self):
+        """Get the game over status.
+
+        Returns:
+            bool: whether the game is over or not.
+        """
         return self._is_game_over

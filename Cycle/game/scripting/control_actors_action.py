@@ -23,7 +23,7 @@ class ControlActorsAction(Action):
         """
         self._keyboard_service = keyboard_service
         self._direction = Point(constants.CELL_SIZE, 0)
-        self._player=player
+        self._player = player
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -32,19 +32,15 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        # left
         if self._keyboard_service.is_key_down(self._player.keys["left"]):
             self._direction = Point(-constants.CELL_SIZE, 0)
         
-        # right
         if self._keyboard_service.is_key_down(self._player.keys["right"]):
             self._direction = Point(constants.CELL_SIZE, 0)
         
-        # up
         if self._keyboard_service.is_key_down(self._player.keys["up"]):
             self._direction = Point(0, -constants.CELL_SIZE)
         
-        # down
         if self._keyboard_service.is_key_down(self._player.keys["down"]):
             self._direction = Point(0, constants.CELL_SIZE)
         
