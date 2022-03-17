@@ -48,6 +48,7 @@ root                    (project root folder)
         +-- point.py
   +-- __main__.py       (entry point for program)
   +-- constants.py
++-- .gitignore          (ignore pycache files)
 +-- README.md           (general info)
 ```
 
