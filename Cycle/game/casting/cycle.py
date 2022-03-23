@@ -23,6 +23,7 @@ class Cycle(Actor):
         self._color = player_color
         self._prepare_body()        
         self.keys = keys
+        self.growth = 0
 
     def get_segments(self):
         """Get the segments of the Cycle.
@@ -59,6 +60,7 @@ class Cycle(Actor):
             number_of_segments (int): Number of segments to add to the Cycle.
         """
         for i in range(number_of_segments):
+            self.growth += 1
             tail = self._segments[-1]
             velocity = tail.get_velocity()
             offset = velocity.reverse()
@@ -69,7 +71,8 @@ class Cycle(Actor):
             segment.set_velocity(velocity)
             segment.set_text("#")
             segment.set_color(self._color)
-            self._segments.append(segment)
+            if self.growth % 2 == 0:
+                self._segments.append(segment)
 
     def turn_head(self, velocity):
         """Turns the Cycle head by changing
