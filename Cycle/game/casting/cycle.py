@@ -61,10 +61,10 @@ class Cycle(Actor):
         """
         for i in range(number_of_segments):
             self.growth += 1
-            tail = self._segments[-1]
-            velocity = tail.get_velocity()
+            trail = self._segments[-1]
+            velocity = trail.get_velocity()
             offset = velocity.reverse()
-            position = tail.get_position().add(offset)
+            position = trail.get_position().add(offset)
             
             segment = Actor()
             segment.set_position(position)
